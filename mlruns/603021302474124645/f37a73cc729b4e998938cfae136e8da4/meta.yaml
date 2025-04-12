@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/603021302474124645/f37a73cc729b4e998938cfae136e8da4/artifacts
+end_time: 1744314955096
+entry_point_name: ''
+experiment_id: '603021302474124645'
+lifecycle_stage: active
+run_id: f37a73cc729b4e998938cfae136e8da4
+run_name: delightful-grub-418
+run_uuid: f37a73cc729b4e998938cfae136e8da4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1744314954206
+status: 4
+tags: []
+user_id: shahroz

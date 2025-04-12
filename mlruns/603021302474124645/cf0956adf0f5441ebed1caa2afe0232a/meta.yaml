@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/603021302474124645/cf0956adf0f5441ebed1caa2afe0232a/artifacts
+end_time: 1744315120593
+entry_point_name: ''
+experiment_id: '603021302474124645'
+lifecycle_stage: active
+run_id: cf0956adf0f5441ebed1caa2afe0232a
+run_name: abrasive-squid-337
+run_uuid: cf0956adf0f5441ebed1caa2afe0232a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1744315119570
+status: 4
+tags: []
+user_id: shahroz

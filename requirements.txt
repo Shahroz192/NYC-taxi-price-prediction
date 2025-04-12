@@ -1,0 +1,6 @@
+mlflow>=1.30.0
+scikit-learn>=1.0.0
+pandas>=1.3.0
+numpy>=1.21.0
+fastapi>=0.78.0
+uvicorn>=0.18.0evidently==0.4.8

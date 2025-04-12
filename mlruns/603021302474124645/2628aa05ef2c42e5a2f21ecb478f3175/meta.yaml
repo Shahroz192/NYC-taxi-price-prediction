@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/603021302474124645/2628aa05ef2c42e5a2f21ecb478f3175/artifacts
+end_time: 1744318605024
+entry_point_name: ''
+experiment_id: '603021302474124645'
+lifecycle_stage: active
+run_id: 2628aa05ef2c42e5a2f21ecb478f3175
+run_name: able-finch-601
+run_uuid: 2628aa05ef2c42e5a2f21ecb478f3175
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1744318550322
+status: 3
+tags: []
+user_id: shahroz

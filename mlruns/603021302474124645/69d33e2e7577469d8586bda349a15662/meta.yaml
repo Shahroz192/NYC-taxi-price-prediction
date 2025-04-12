@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/603021302474124645/69d33e2e7577469d8586bda349a15662/artifacts
+end_time: 1744315273189
+entry_point_name: ''
+experiment_id: '603021302474124645'
+lifecycle_stage: active
+run_id: 69d33e2e7577469d8586bda349a15662
+run_name: classy-sow-349
+run_uuid: 69d33e2e7577469d8586bda349a15662
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1744315214597
+status: 3
+tags: []
+user_id: shahroz

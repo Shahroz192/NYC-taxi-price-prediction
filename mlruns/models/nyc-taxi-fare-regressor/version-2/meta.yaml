@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1744318425455
+current_stage: None
+description: ''
+last_updated_timestamp: 1744318425455
+name: nyc-taxi-fare-regressor
+run_id: 128c421ddea24997b0d52bb91509d2ee
+run_link: ''
+source: mlflow-artifacts:/603021302474124645/128c421ddea24997b0d52bb91509d2ee/artifacts/model
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/603021302474124645/128c421ddea24997b0d52bb91509d2ee/artifacts/model
+user_id: null
+version: 2

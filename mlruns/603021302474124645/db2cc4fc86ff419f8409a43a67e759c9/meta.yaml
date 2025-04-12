@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/603021302474124645/db2cc4fc86ff419f8409a43a67e759c9/artifacts
+end_time: 1744318758626
+entry_point_name: ''
+experiment_id: '603021302474124645'
+lifecycle_stage: active
+run_id: db2cc4fc86ff419f8409a43a67e759c9
+run_name: retraining_run
+run_uuid: db2cc4fc86ff419f8409a43a67e759c9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1744318746107
+status: 4
+tags: []
+user_id: shahroz

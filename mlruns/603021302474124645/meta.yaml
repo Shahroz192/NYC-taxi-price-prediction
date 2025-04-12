@@ -1,0 +1,6 @@
+artifact_location: mlflow-artifacts:/603021302474124645
+creation_time: 1744314953790
+experiment_id: '603021302474124645'
+last_update_time: 1744314953790
+lifecycle_stage: active
+name: NYC Taxi Fare Prediction

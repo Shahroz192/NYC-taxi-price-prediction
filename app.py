@@ -41,7 +41,7 @@ def load_model():
         model_uri = f"models:/{MODEL_NAME}/{MODEL_STAGE}"
         model = mlflow.pyfunc.load_model(model_uri=model_uri)
 
-        client = mlflow.tracking.MlflowClient()
+        client = mlflow.MlflowClient(tracking_uri=MLFLOW_TRACKING_URI)
         latest_versions = client.get_latest_versions(MODEL_NAME, stages=[MODEL_STAGE])
         if latest_versions:
             model_version = latest_versions[0].version
@@ -170,4 +170,3 @@ async def health_check():
     """Returns 'ok' if the service is running, checks if model is loaded."""
     status = "ok" if model is not None else "error: model not loaded"
     return {"status": status, "model_name": MODEL_NAME, "model_stage": MODEL_STAGE, "model_version": model_version}
-

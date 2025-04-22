@@ -1,0 +1,33 @@
+mlflow:
+  tracking_uri: "http://127.0.0.1:5000"
+  experiment_name: "NYC Taxi Fare Prediction"
+  registered_model_name: "nyc-taxi-fare-regressor"
+  model_stage: "Production"
+
+data:
+  raw_data_path: "data/train.csv"
+  processed_data_dir: "data/processed"
+  source_for_new_dir: "data/source_for_new"
+  historical_data_path: "data/processed/historical_data.csv"
+  future_data_path: "data/source_for_new/future_data.csv"
+  test_data_path: "data/processed/test.csv"
+  report_dir: "reports"
+
+model:
+  type: "RandomForestRegressor"
+  params:
+    n_estimators: 100
+    max_depth: 10
+    random_state: 42
+
+retrain:
+  drift_detection_features: ["distance_km", "hour"]
+  drift_threshold: 0.05
+  performance_degradation_threshold: 1.2
+  promotion_threshold_factor: 0.98
+
+experiment:
+  test_metric_thresholds:
+    rmse: 10.0
+    mae: 8.0
+    r2: 0.6

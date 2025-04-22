@@ -1,0 +1,22 @@
+{
+  "dataframe_split": {
+    "columns": [
+      "passenger_count",
+      "hour",
+      "day_of_week",
+      "month",
+      "year",
+      "distance_km"
+    ],
+    "data": [
+      [
+        1,
+        1,
+        6,
+        12,
+        2013,
+        6.876623562683163
+      ]
+    ]
+  }
+}

@@ -7,25 +7,25 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.model_selection import train_test_split
 import os
 import joblib 
+import yaml
 
-MLFLOW_TRACKING_URI = os.getenv("MLFLOW_TRACKING_URI", "http://127.0.0.1:5000") 
-MLFLOW_EXPERIMENT_NAME = "NYC Taxi Fare Prediction"
-REGISTERED_MODEL_NAME = "nyc-taxi-fare-regressor"
+# Load config at module level so variables are importable
+with open("config.yaml", "r") as f:
+    config = yaml.safe_load(f)
 
-MODEL_PARAMS = {
-    "n_estimators": 100,
-    "max_depth": 10,
-    "min_samples_split": 5,
-    "min_samples_leaf": 3,
-    "n_jobs": -1, 
-    "random_state": 42
-}
+mlflow_config = config["mlflow"]
+data_config = config["data"]
+model_config = config["model"]
 
+MLFLOW_TRACKING_URI = mlflow_config["tracking_uri"]
+MLFLOW_EXPERIMENT_NAME = mlflow_config["experiment_name"]
+REGISTERED_MODEL_NAME = mlflow_config["registered_model_name"]
+
+MODEL_PARAMS = model_config["params"]
 
 LOCAL_MODEL_DIR = "models"
 LOCAL_MODEL_PATH = os.path.join(LOCAL_MODEL_DIR, "model.joblib")
 os.makedirs(LOCAL_MODEL_DIR, exist_ok=True)
-
 
 def calculate_metrics(actual, predicted):
     """Calculates regression evaluation metrics."""
@@ -108,7 +108,7 @@ def train_model(X_train, X_test, y_train, y_test):
     print("Model training process finished.")
 
 if __name__ == "__main__":
-    df = pd.read_csv("data/processed/historical_data.csv")
+    df = pd.read_csv(data_config["historical_data_path"])
     X = df.drop(["fare_amount","key","pickup_latitude","pickup_longitude","dropoff_latitude","dropoff_longitude","pickup_datetime"], axis=1)
     y = df["fare_amount"]
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)

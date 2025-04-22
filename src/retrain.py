@@ -1,15 +1,16 @@
+import os
+import yaml
 import mlflow
+import shutil 
+import logging
+import pandas as pd
 import mlflow.sklearn 
 from mlflow.tracking import MlflowClient
 from sklearn.ensemble import RandomForestRegressor
-import os
-import pandas as pd
-import logging
-import shutil 
 from train import calculate_metrics, MODEL_PARAMS
 from evidently.presets import DataDriftPreset
-from evidently import Report
 from sklearn.model_selection import train_test_split
+from evidently import Report
 
 
 NEW_DATA_DIR = os.getenv("NEW_DATA_DIR", "data/source_for_new")
@@ -128,8 +129,7 @@ def run_retraining_pipeline():
     new_data_df = pd.concat(df_list, ignore_index=True)
     logging.info(f"Combined new data shape: {new_data_df.shape}")
 
-    # --- Simulate saving combined data and using load_and_split_historical_data ---
-    # In a real scenario, you might pass the DataFrame directly or save it temporarily
+    # Save the combined DataFrame to a temporary file
     temp_combined_path = os.path.join(NEW_DATA_DIR, "temp_combined_new_data.csv")
     new_data_df.to_csv(temp_combined_path, index=False)
     logging.info(f"Temporarily saved combined new data to {temp_combined_path}")
@@ -297,3 +297,27 @@ def run_retraining_pipeline():
 
 if __name__ == "__main__":
     run_retraining_pipeline()
+
+
+with open("config.yaml", "r") as f:
+    config = yaml.safe_load(f)
+
+mlflow_config = config["mlflow"]
+data_config = config["data"]
+model_config = config["model"]
+retrain_config = config["retrain"]
+
+MLFLOW_TRACKING_URI = mlflow_config["tracking_uri"]
+MLFLOW_EXPERIMENT_NAME = mlflow_config["experiment_name"]
+REGISTERED_MODEL_NAME = mlflow_config["registered_model_name"]
+
+NEW_DATA_DIR = data_config["source_for_new_dir"]
+REPORT_DIR = data_config["report_dir"]
+HISTORICAL_DATA_PATH = data_config["historical_data_path"]
+
+MODEL_PARAMS = model_config["params"]
+
+DRIFT_DETECTION_FEATURES = retrain_config["drift_detection_features"]
+DRIFT_THRESHOLD = retrain_config["drift_threshold"]
+PERFORMANCE_DEGRADATION_THRESHOLD = retrain_config["performance_degradation_threshold"]
+PROMOTION_THRESHOLD_FACTOR = retrain_config["promotion_threshold_factor"]

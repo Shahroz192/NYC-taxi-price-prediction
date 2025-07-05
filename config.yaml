@@ -8,10 +8,15 @@ data:
   raw_data_path: "data/train.csv"
   processed_data_dir: "data/processed"
   source_for_new_dir: "data/source_for_new"
+  processed_new_data_dir: "data/processed_new" # For moving files after retraining
   historical_data_path: "data/processed/historical_data.csv"
   future_data_path: "data/source_for_new/future_data.csv"
   test_data_path: "data/processed/test.csv"
   report_dir: "reports"
+
+preprocessing:
+  n_rows_to_load: 1000000
+  future_data_fraction: 0.2
 
 model:
   type: "RandomForestRegressor"
@@ -19,6 +24,15 @@ model:
     n_estimators: 100
     max_depth: 10
     random_state: 42
+  local_model_path: "models/model.joblib"
+  features_to_drop:
+    - "key"
+    - "pickup_datetime"
+    - "pickup_latitude"
+    - "pickup_longitude"
+    - "dropoff_latitude"
+    - "dropoff_longitude"
+
 
 retrain:
   drift_detection_features: ["distance_km", "hour"]

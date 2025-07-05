@@ -72,7 +72,7 @@ def preprocess_input(ride: TaxiRideFeatures) -> pd.DataFrame:
     input_data = {
         "passenger_count": ride.passenger_count,
         "hour": dt.hour,
-        "day_of_week": dt.dayofweek,
+        "day_of_week": dt.weekday(),
         "month": dt.month,
         "year": dt.year,
         "distance_km": distance_km,

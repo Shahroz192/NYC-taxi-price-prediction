@@ -49,17 +49,8 @@ def calculate_distance(df):
 
 def extract_time_features(df):
     """Extracts time-based features from the pickup_datetime column."""
-
-
-def extract_time_features(df):
-    """Extracts time-based features from the pickup_datetime column."""
     df["pickup_datetime"] = pd.to_datetime(df["pickup_datetime"], errors="coerce")
     df.dropna(subset=["pickup_datetime"], inplace=True)
-    df["hour"] = df["pickup_datetime"].dt.hour
-    df["day_of_week"] = df["pickup_datetime"].dt.dayofweek
-    df["month"] = df["pickup_datetime"].dt.month
-    df["year"] = df["pickup_datetime"].dt.year
-    return df
     df["hour"] = df["pickup_datetime"].dt.hour
     df["day_of_week"] = df["pickup_datetime"].dt.dayofweek
     df["month"] = df["pickup_datetime"].dt.month

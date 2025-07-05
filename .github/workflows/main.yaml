@@ -24,6 +24,7 @@ jobs:
 
       - name: Run tests
         run: |
+          export PYTHONPATH=$PWD
           pytest tests/
 
       - name: Build Docker image
